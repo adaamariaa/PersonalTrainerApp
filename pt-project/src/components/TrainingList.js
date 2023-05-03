@@ -3,6 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-material.css';
 import { format } from 'date-fns';
+import { Button } from '@mui/material';
 
 export default function TrainingList(){
 
@@ -20,14 +21,20 @@ export default function TrainingList(){
 
     const columns = [
         { field: "date", valueFormatter: (params) => {
-            return format(new Date(params.data.date), 'dd/MM/yyyy HH:mm');
+            return format(new Date(params.data.date), 'dd.MM.yyyy HH:mm');
           }},
         { field: "duration"},
         { field: "activity"},
         { field: "firstname", valueGetter: (params) => {
             return params.data.customer.firstname;}},
         { field: "lastname", valueGetter: (params) => {
-            return params.data.customer.lastname;}}
+            return params.data.customer.lastname;}},
+        { field: "id", headerName: "Delete", sortable: false, floatingFilter: false, cellRenderer: params => {
+            return(
+                <Button onClick={() => deleteTraining(`https://traineeapp.azurewebsites.net/api/trainings/${params.data.id}`)}>
+                    Delete</Button>
+            ) 
+        }}
         ]
 
     const defaultColDef = {
@@ -36,13 +43,21 @@ export default function TrainingList(){
         floatingFilter: true
     }
 
+    const deleteTraining = url => {
+        if (!window.confirm("Delete training?")) return;
+       const options={
+        method : 'delete'
+       };
 
-
+        fetch(url, options)
+        .then(response => fetchData())
+        .catch(error => console.error(error))
+    }
 
     return(
         <div>
             <div className="ag-theme-material"
-          style={{height: '700px', width: '70%', margin: 'auto'}} >
+          style={{height: '700px', width: '100%', margin: 'auto'}} >
         <AgGridReact
             
             columnDefs={columns}

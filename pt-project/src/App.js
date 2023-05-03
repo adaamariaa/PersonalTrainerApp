@@ -12,8 +12,8 @@ function App() {
 <div className="App">
       <header className='header'>Welcome personal trainer app</header>
       <BrowserRouter>
-        <Link to="/">Home</Link>{' '}
-        <Link to="/trainings">trainings</Link>{' '}
+        <Link to="/">Customers</Link>{' '}
+        <Link to="/trainings">Trainings</Link>{' '}
         <Routes>
           <Route exact path="/" element={<CustomerList />} />
           <Route path="/trainings" element={<TrainingList />} />
