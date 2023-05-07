@@ -36,7 +36,7 @@ const handleChangeInput = event => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="text" color="secondary" onClick={handleClickOpen}>
         Add training
       </Button>
       <Dialog open={open} onClose={handleClose}>

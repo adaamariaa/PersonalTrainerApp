@@ -35,7 +35,7 @@ const handleChangeInput = event => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button size="small" variant="contained" color="secondary" onClick={handleClickOpen}>
         Add customer
       </Button>
       <Dialog open={open} onClose={handleClose}>

@@ -31,7 +31,7 @@ export default function TrainingList(){
             return params.data.customer.lastname;}},
         { field: "id", headerName: "Delete", sortable: false, floatingFilter: false, cellRenderer: params => {
             return(
-                <Button onClick={() => deleteTraining(`https://traineeapp.azurewebsites.net/api/trainings/${params.data.id}`)}>
+                <Button variant="text" color="secondary" onClick={() => deleteTraining(`https://traineeapp.azurewebsites.net/api/trainings/${params.data.id}`)}>
                     Delete</Button>
             ) 
         }}
