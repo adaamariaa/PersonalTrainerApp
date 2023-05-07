@@ -32,7 +32,7 @@ const events = trainings.map((training) => ({
       events={events}
       startAccessor="start"
       endAccessor="end"
-      style={{ height: 500 }}
+      style={{ height: 500, color: '#912bab' }}
     />
   </div>
     )

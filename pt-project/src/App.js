@@ -8,6 +8,7 @@ import {
   } from "react-router-dom";
 import TrainingList from './components/TrainingList';
 import TrainingCalendar from './components/TrainingCalendar';
+import StaticList from './components/Stats';
 import { Toolbar, Typography } from '@mui/material';
 import { AppBar } from '@mui/material';
 import { Box } from "@mui/material";
@@ -28,10 +29,12 @@ function App() {
         <Link to="/"><Button size="small" variant="text" color="secondary">Customers</Button></Link>{' '}
         <Link to="/trainings"><Button size="small" variant="text" color="secondary">Trainings</Button></Link>{' '}
         <Link to="/calendar"><Button size="small" variant="text" color="secondary">Calendar</Button></Link>
+        <Link to="/stats"><Button size="small" variant="text" color="secondary">Stats</Button></Link>
         <Routes>
           <Route exact path="/" element={<CustomerList />} />
           <Route path="/trainings" element={<TrainingList />} />
           <Route path="/calendar" element={<TrainingCalendar/>}/>
+          <Route path="/stats" element={<StaticList/>}/>
         </Routes>
       </BrowserRouter>
     </Box>
